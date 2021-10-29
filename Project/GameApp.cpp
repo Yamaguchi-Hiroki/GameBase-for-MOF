@@ -9,6 +9,8 @@
 
 //INCLUDE
 #include	"GameApp.h"
+#include     "GameDefine.h"
+using namespace Game;
 
 /*************************************************************************//*!
 		@brief			アプリケーションの初期化
@@ -18,6 +20,8 @@
 						それ以外	失敗、エラーコードが戻り値となる
 *//**************************************************************************/
 MofBool CGameApp::Initialize(void){
+
+	sceneManager.Initialize(SceneName_Title, 60);
 	return TRUE;
 }
 /*************************************************************************//*!
@@ -30,6 +34,10 @@ MofBool CGameApp::Initialize(void){
 MofBool CGameApp::Update(void){
 	//キーの更新
 	g_pInput->RefreshKey();
+
+	//シーンの更新
+	sceneManager.Update();
+
 	return TRUE;
 }
 /*************************************************************************//*!
@@ -45,6 +53,9 @@ MofBool CGameApp::Render(void){
 	//画面のクリア
 	g_pGraphics->ClearTarget(0.0f,0.0f,1.0f,0.0f,1.0f,0);
 
+	//シーンの描画
+	sceneManager.Render();
+
 	//描画の終了
 	g_pGraphics->RenderEnd();
 	return TRUE;
@@ -57,5 +68,7 @@ MofBool CGameApp::Render(void){
 						それ以外	失敗、エラーコードが戻り値となる
 *//**************************************************************************/
 MofBool CGameApp::Release(void){
+
+	sceneManager.Release();
 	return TRUE;
 }

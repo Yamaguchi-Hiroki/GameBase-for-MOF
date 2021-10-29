@@ -103,12 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h" />
+    <ClInclude Include="GameDefine.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="SceneBase.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TitleScene.h" />
   </ItemGroup>
-
   <ItemGroup>
     <ResourceCompile Include="Version.rc" />
   </ItemGroup>
