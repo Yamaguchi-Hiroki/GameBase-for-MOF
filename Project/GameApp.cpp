@@ -10,6 +10,15 @@
 //INCLUDE
 #include	"GameApp.h"
 #include     "GameDefine.h"
+
+#include <vector>
+#include <list>
+
+using TexturePtr = std::shared_ptr<CTexture>;
+std::vector<TexturePtr>textureArray;
+std::vector<int>testArray;
+std::list<int>testList;
+
 using namespace Game;
 
 /*************************************************************************//*!
@@ -22,6 +31,25 @@ using namespace Game;
 MofBool CGameApp::Initialize(void){
 
 	sceneManager.Initialize(SceneName_Title, 60);
+
+
+	MOF_PRINTLOG("配列要素数 : %d \n",testArray.size());
+
+	for (int i = 0; i < 3; i++)
+	{
+		testArray.push_back(10 + i);
+		testList.push_back(10 + i);
+		
+	}
+
+	for (int itr : testArray)
+	{
+		std::list<int>::iterator it = testList.begin();
+		MOF_PRINTLOG("配列要素数[] : %d \n", itr);
+	}
+
+	testArray.push_back(10);
+
 	return TRUE;
 }
 /*************************************************************************//*!
